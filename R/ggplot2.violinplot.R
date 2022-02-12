@@ -59,7 +59,13 @@ ggplot2.violinplot<-function(data, xName=NULL, yName=NULL, groupName=NULL,
   
   params <- list(...)
   trim <- ifelse(!is.null(params$trim), params$trim, TRUE)
-  position <- ifelse(!is.null(params$position), params$position, "dodge")
+  # position <- ifelse(!is.null(params$position), params$position, "dodge")
+  if (!is.null(params$position)) {
+      position <- params$position
+  }
+  else {
+      position <- "dodge"
+  }
   
   #if yName is missing or null, data should be a numeric vector
   if(is.null(yName) & !is.numeric(data))
