@@ -58,7 +58,13 @@ ggplot2.violinplot<-function(data, xName=NULL, yName=NULL, groupName=NULL,
 {
   
   params <- list(...)
-  trim <- ifelse(!is.null(params$trim), params$trim, TRUE)
+  # trim <- ifelse(!is.null(params$trim), params$trim, TRUE)
+  if (!is.null(params$trim)) {
+      trim <- params$trim
+  }
+  else {
+      trim <- TRUE
+  }
   # position <- ifelse(!is.null(params$position), params$position, "dodge")
   if (!is.null(params$position)) {
       position <- params$position
